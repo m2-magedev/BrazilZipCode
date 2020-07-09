@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="MageDev_BrazilZipCode::magedev" title="MageDev">
+                    <resource id="MageDev_BrazilZipCode::brazil_zip_code" title="MageDev Brazil ZipCode" sortOrder="12">
+                        <resource id="MageDev_BrazilZipCode::brazil_zip_code_config" title="Configuration" sortOrder="100"/>
+                        <resource id="MageDev_BrazilZipCode::brazil_zip_code_api_access" title="API Access" sortOrder="100"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

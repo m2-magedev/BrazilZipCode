@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="brazil_zipcode_services.xsd">
+   <service id="ViaCep">
+       <name>ViaCep</name>
+       <class>MageDev\BrazilZipCode\Gateway\Services\ViaCep</class>
+   </service>
+
+    <service id="Correios">
+        <name>Correios</name>
+        <class>MageDev\BrazilZipCode\Gateway\Services\Correios</class>
+    </service>
+</services>

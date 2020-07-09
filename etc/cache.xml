@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Cache/etc/cache.xsd">
+    <type name="config_zipcode_search_api" translate="label,description" instance="MageDev\BrazilZipCode\Model\Cache\Type\ApiSearchType">
+        <label>Brazil ZipCode</label>
+        <description>Cache To Speed Up the Zip Code Search</description>
+    </type>
+</config>

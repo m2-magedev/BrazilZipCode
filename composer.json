@@ -1,0 +1,42 @@
+{
+    "name": "magedev/brazilzipcode",
+    "description":"Magento 2 module to use brazil zipcode search services.",
+    "keywords": [
+        "magento 2",
+        "brazil zipcode",
+        "cep brasil",
+        "magento2 cep",
+        "zipcode",
+        "magento 2 cep"
+    ],
+    "require": {
+        "magento/module-backend": "100.0.*|100.1.*|100.2.*|101.0.*",
+        "magento/framework": "100.0.*|100.1.*|101.0.*|102.0.*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "GPL-3.0-or-later"
+    ],
+    "homepage": "https://github.com/m2-magedev/BrazilZipCode",
+    "support": {
+        "email": "walisson@magedev.com.br",
+        "issues": "https://github.com/m2-magedev/BrazilZipCode/issues"
+    },
+    "authors": [
+        {
+            "name": "Walisson Costa Ferreira",
+            "email": "walisson@magedev.com.br",
+            "homepage": "https://github.com/m2-magedev/BrazilZipCode",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MageDev\\BrazilZipCode\\": ""
+        }
+    }
+}

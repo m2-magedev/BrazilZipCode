@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <brazil_zipcode>
+            <general>
+                <cache_status>1</cache_status>
+                <db_status>1</db_status>
+            </general>
+        </brazil_zipcode>
+    </default>
+</config>
