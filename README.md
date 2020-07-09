@@ -52,3 +52,9 @@ php bin/magento cache:clean config_zipcode_search_api
 ### Uso da consulta de CEP por serviços externos (Outras plataformas, sistemas ou postman)
 
 Criar uma chave de integração no Magento e fazer uso do header de Authorization.
+
+## Doações
+
+Doe agora e ajude a manter o trabalho! ;)
+
+No momento estou recebendo doações apenas via PicPay através do usuário @walisson-ferreira
