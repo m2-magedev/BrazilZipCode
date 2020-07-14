@@ -75,7 +75,7 @@ class ZipCodeRepository implements ZipCodeRepositoryInterface
             $object = $this->zipCodeFactory->create();
             $this->zipCodeResource->load($object, $id);
             if (!$object->getId()) {
-                throw new NoSuchEntityException(__('ZipCode with specified ID "%1" not found.', $id));
+                throw new NoSuchEntityException(__('ZipCode with specified ID %1 not found.', $id));
             }
             $this->zipCodes[$id] = $object;
         }
@@ -100,7 +100,7 @@ class ZipCodeRepository implements ZipCodeRepositoryInterface
             /** @var ZipCode $object */
             $object = $this->zipCodeFactory->create()->load($zipCode, ZipCodeInterface::FIELD_ZIPCODE);
             if (!$object->getId()) {
-                throw new NoSuchEntityException(__('ZipCode "%1" not found.', $zipCode));
+                throw new NoSuchEntityException(__('ZipCode %1 not found.', $zipCode));
             }
             $id = $object->getId();
             $object->setDataSource(SourceType::DATABASE);

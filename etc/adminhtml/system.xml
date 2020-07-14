@@ -23,7 +23,7 @@
                 </field>
                 <field id="service_sort_order" translate="label" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Services Sort Order</label>
-                    <comment>By default, all services are iterated if none return a valid zipcode object. Setting an sort order in this field will not only define a sort order, but will limit services available to iterate. (Services not listed here, will be "disabled" on the service list.) Clear this list to enable all the services again, or add all you want to be available.</comment>
+                    <comment>By default, all services are iterated if none return a valid zipcode object. Setting an sort order in this field will not only define a sort order, but will limit services available to iterate. (Services not listed here, will be disabled on the service list.) Clear this list to enable all the services again, or add all you want to be available.</comment>
                     <frontend_model>MageDev\BrazilZipCode\Block\Adminhtml\Form\Field\ServicesSortOrder</frontend_model>
                     <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
                 </field>
