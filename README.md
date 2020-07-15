@@ -10,7 +10,7 @@ Módulo criado para utilização de serviços de consulta de CEP, já contendo d
 ```
 composer require magedev/brazilzipcode
 php bin/magento module:enable MageDev_BrazilZipCode
-php bin/magento setup;upgrade
+php bin/magento setup:upgrade
 ```
 
 ### Configurações
