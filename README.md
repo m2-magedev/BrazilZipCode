@@ -53,6 +53,24 @@ php bin/magento cache:clean config_zipcode_search_api
 
 Criar uma chave de integração no Magento e fazer uso do header de Authorization.
 
+## Adicionando novos serviços através do seu módulo
+- Crie seu módulo
+- Crie sua classe de serviço estendendo da classe MageDev\BrazilZipCode\Gateway\AbstractZipCodeService
+- Sobrescreva os métodos getAddressData e validate
+- Declare o xml brazil_zipcode_services.xml no etc de seu módulo com o seguinte conteúdo
+```
+<?xml version="1.0" ?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="brazil_zipcode_services.xsd">
+   <service id="ID_UNICO_PARA_SEU_SERVICO">
+       <name>NOME_DO_SEU_SERVICO</name>
+       <class>VENDOR_DO_MODULO\NOME_DO_MODULO\Services\NOME_DA_CLASSE_SO_SEU_SERVICO</class>
+   </service>
+</services>
+```
+- Instale seu módulo e limpe o cache.
+- Obs: Caso deseje priorizar seu serviço, acesse as configurações do módulo BrazilZipCode no admin e adicione seu serviço como o primeiro da lista, assim
+seu serviço será o primeiro a ser acessado quando o CEP não for localizado no cache ou banco de dados.
+
 ## Doações
 
 Doe agora e ajude a manter o trabalho! ;)
