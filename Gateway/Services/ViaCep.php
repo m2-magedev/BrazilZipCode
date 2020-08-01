@@ -25,7 +25,8 @@ class ViaCep extends AbstractZipCodeService
         if ($response && $response->getStatusCode() == 200) {
             $responseBody = json_decode($response->getBody(), true);
             $zipObject->setStreet($responseBody['logradouro'] ?? null);
-            $zipObject->setState($responseBody['uf'] ?? null);
+            $zipObject->setRegion($responseBody['uf'] ?? null);
+            $zipObject->setRegionId($this->config->getRegionId($responseBody['uf'], 'BR') ?? null);
             $zipObject->setNeighborhood($responseBody['bairro'] ?? null);
             $zipObject->setCity($responseBody['localidade'] ?? null);
             $zipObject->setAdditionalInfo($responseBody['complemento'] ?? null);
@@ -39,7 +40,7 @@ class ViaCep extends AbstractZipCodeService
     /** @inheritdoc  */
     public function validate(ZipCodeInterface $zipObject)
     {
-        if (!$zipObject->getStreet() || !$zipObject->getCity() || !$zipObject->getState()) {
+        if (!$zipObject->getStreet() || !$zipObject->getCity() || !$zipObject->getRegion()) {
             return false;
         }
 

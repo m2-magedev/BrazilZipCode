@@ -37,5 +37,4 @@ abstract class AbstractZipCodeService extends AbstractRequest implements ZipCode
         // TODO: Override and implement your validations over the object
         return false;
     }
-
 }

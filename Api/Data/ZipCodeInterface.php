@@ -9,7 +9,8 @@ interface ZipCodeInterface
     const FIELD_NEIGHBORHOOD = 'neighborhood';
     const FIELD_INFO = 'additional_info';
     const FIELD_CITY = 'city';
-    const FIELD_STATE = 'state';
+    const FIELD_REGION = 'region';
+    const FIELD_REGION_ID = 'region_id';
     const FIELD_CODE = 'code';
     const FIELD_DATASOURCE = 'data_source';
     const FIELD_IS_VALID = 'is_valid';
@@ -72,15 +73,26 @@ interface ZipCodeInterface
     public function getCity();
 
     /**
-     * @param $state
+     * @param $region
      * @return mixed
      */
-    public function setState($state);
+    public function setRegion($region);
 
     /**
      * @return mixed
      */
-    public function getState();
+    public function getRegion();
+
+    /**
+     * @param $regionId
+     * @return mixed
+     */
+    public function setRegionId($regionId);
+
+    /**
+     * @return mixed
+     */
+    public function getRegionId();
 
     /**
      * @param $code

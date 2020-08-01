@@ -86,15 +86,26 @@ class ZipCode extends AbstractModel implements ZipCodeInterface
         return $this->getData(self::FIELD_CITY);
     }
 
-    public function setState($state)
+    public function setRegion($region)
     {
-        $this->setData(self::FIELD_STATE, $state);
+        $this->setData(self::FIELD_REGION, $region);
         return $this;
     }
 
-    public function getState()
+    public function getRegion()
     {
-        return $this->getData(self::FIELD_STATE);
+        return $this->getData(self::FIELD_REGION);
+    }
+
+    public function setRegionId($regionId)
+    {
+        $this->setData(self::FIELD_REGION_ID, $regionId);
+        return $this;
+    }
+
+    public function getRegionId()
+    {
+        return $this->getData(self::FIELD_REGION_ID);
     }
 
     public function setCode($code)

@@ -4,7 +4,6 @@
         <service class="MageDev\BrazilZipCode\Api\ZipCodeServiceApiInterface" method="search"/>
         <resources>
             <resource ref="self" />
-            <resource ref="MageDev_BrazilZipCode::brazil_zip_code_api_access" />
         </resources>
     </route>
 </routes>

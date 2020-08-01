@@ -68,11 +68,18 @@ class InstallSchema implements InstallSchemaInterface
                 'Neighborhood'
             )
             ->addColumn(
-                ZipCodeInterface::FIELD_STATE,
+                ZipCodeInterface::FIELD_REGION,
                 Table::TYPE_TEXT,
                 2,
                 ['nullable' => false],
-                'State'
+                'Region'
+            )
+            ->addColumn(
+                ZipCodeInterface::FIELD_REGION_ID,
+                Table::TYPE_INTEGER,
+                null,
+                ['nullable' => false],
+                'Region Id'
             )
             ->addColumn(
                 ZipCodeInterface::FIELD_INFO,

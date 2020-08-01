@@ -7,6 +7,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Cache\TypeListInterface;
 use Magento\PageCache\Model\Cache\Type;
 use Magento\Framework\App\Cache\Type\Config as TypeConfig;
+use Magento\Directory\Model\RegionFactory;
 
 class Config
 {
@@ -25,6 +26,11 @@ class Config
     private $cacheTypeList;
 
     /**
+     * @var RegionFactory
+     */
+    protected $regionFactory;
+
+    /**
      * Config constructor.
      * @param ScopeConfigInterface $scopeConfig
      * @param ConfigInterface $configInterface
@@ -33,11 +39,13 @@ class Config
     public function __construct(
         ScopeConfigInterface $scopeConfig,
         ConfigInterface $configInterface,
-        TypeListInterface $cacheTypeList
+        TypeListInterface $cacheTypeList,
+        RegionFactory $regionFactory
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->configInterface = $configInterface;
         $this->cacheTypeList = $cacheTypeList;
+        $this->regionFactory = $regionFactory;
     }
 
     /**
@@ -120,5 +128,20 @@ class Config
             }
         }
         return false;
+    }
+
+    /**
+     * Return the region id by region code
+     * @param $code
+     * @param $countryId
+     * @return false
+     */
+    public function getRegionId($code, $countryId)
+    {
+        if (!$code) {
+            return false;
+        }
+
+        return $this->regionFactory->create()->loadByCode($code, $countryId)->getRegionId();
     }
 }

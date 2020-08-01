@@ -28,7 +28,8 @@ class Correios extends AbstractZipCodeService
         if ($response && $response->getStatusCode() == 200) {
             $responseBody = json_decode($response->getBody(), true);
             $zipObject->setStreet($responseBody['logradouro'] ?? null);
-            $zipObject->setState($responseBody['uf'] ?? null);
+            $zipObject->setRegion($responseBody['uf'] ?? null);
+            $zipObject->setRegionId($this->config->getRegionId($responseBody['uf'], 'BR') ?? null);
             $zipObject->setNeighborhood($responseBody['bairro'] ?? null);
             $zipObject->setCity($responseBody['cidade'] ?? null);
             $zipObject->setIsValid($this->validate($zipObject));
@@ -39,7 +40,7 @@ class Correios extends AbstractZipCodeService
 
     public function validate(ZipCodeInterface $zipObject)
     {
-        if (!$zipObject->getState() || !$zipObject->getCity() || !$zipObject->getStreet()) {
+        if (!$zipObject->getRegion() || !$zipObject->getCity() || !$zipObject->getStreet()) {
             return false;
         }
         return true;
