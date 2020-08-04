@@ -3,7 +3,7 @@
     <route url="/V1/magedev-brazil-zipcode/search/:zipCode" method="GET">
         <service class="MageDev\BrazilZipCode\Api\ZipCodeServiceApiInterface" method="search"/>
         <resources>
-            <resource ref="self" />
+            <resource ref="anonymous" />
         </resources>
     </route>
 </routes>

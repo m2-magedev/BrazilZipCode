@@ -9,3 +9,4 @@
 "Database persistence Enabled","Persistência no Banco Habilitada"
 "Services Sort Order","Sequência de Busca nos Serviços (Ordenação)""
 "By default, all services are iterated if none return a valid zipcode object. Setting an sort order in this field will not only define a sort order, but will limit services available to iterate. (Services not listed here, will be disabled on the service list.) Clear this list to enable all the services again, or add all you want to be available.","Por padrão, todos os serviços são iterados se nenhum retornar um objeto de CEP válido. Definir uma ordem de classificação nesse campo não apenas definirá uma ordem de classificação, mas também limitará os serviços disponíveis para iterar. (Os serviços não listados aqui serão desativados na lista de serviços.) Limpe esta lista para ativar todos os serviços novamente ou adicione tudo o que você deseja que esteja disponível."
+"Accept General ZipCode","Aceitar CEP Geral (Sem logradouro)"

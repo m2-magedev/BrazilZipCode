@@ -14,6 +14,7 @@ class Config
     const BASE_CONFIG_PATH = 'brazil_zipcode/';
     const CACHE_STATUS = 'general/cache_status';
     const DB_STATUS = 'general/db_status';
+    const GENERAL_ZIPCODE = 'general/accept_general_zipcode';
     const SERVICE_SORT_ORDER = 'general/service_sort_order';
 
     /** @var ScopeConfigInterface */
@@ -64,6 +65,15 @@ class Config
     public function isDbPersistenceEnabled()
     {
         return $this->getConfig(self::DB_STATUS);
+    }
+
+    /**
+     * Get general zipcode status
+     * @return mixed
+     */
+    public function isGeneralZipCodeEnabled()
+    {
+        return $this->getConfig(self::GENERAL_ZIPCODE);
     }
 
     /**

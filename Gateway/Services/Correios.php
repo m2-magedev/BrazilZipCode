@@ -11,13 +11,13 @@ use MageDev\BrazilZipCode\Gateway\AbstractZipCodeService;
  */
 class Correios extends AbstractZipCodeService
 {
-    const BASE_URL = 'http://endereco.ecorreios.com.br/app/enderecoCep.php?cep=';
+    const BASE_URL = 'http://cep.republicavirtual.com.br/web_cep.php?cep=ZIPCODE&formato=jsonp';
 
+    /** @inheritdoc */
     public function getAddressData(ZipCodeInterface $zipObject)
     {
         $zipObject = parent::getAddressData($zipObject);
-
-        $uri = self::BASE_URL . $zipObject->getZipCode();
+        $uri = str_replace('ZIPCODE', $zipObject->getZipCode(), self::BASE_URL);
 
         try {
             $response = $this->get($uri, true);
@@ -38,9 +38,13 @@ class Correios extends AbstractZipCodeService
         return $zipObject;
     }
 
+    /** @inheritdoc */
     public function validate(ZipCodeInterface $zipObject)
     {
-        if (!$zipObject->getRegion() || !$zipObject->getCity() || !$zipObject->getStreet()) {
+        $generalZipCode = $this->config->isGeneralZipCodeEnabled();
+        if ((!$generalZipCode && !$zipObject->getStreet())
+            || !$zipObject->getCity()
+            || !$zipObject->getRegion()) {
             return false;
         }
         return true;

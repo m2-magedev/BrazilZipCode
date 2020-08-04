@@ -9,7 +9,7 @@ class ViaCep extends AbstractZipCodeService
 {
     const BASE_URL = "https://viacep.com.br/ws/";
 
-    /** @inheritdoc  */
+    /** @inheritdoc */
     public function getAddressData(ZipCodeInterface $zipObject)
     {
         $zipObject = parent::getAddressData($zipObject);
@@ -37,13 +37,15 @@ class ViaCep extends AbstractZipCodeService
         return $zipObject;
     }
 
-    /** @inheritdoc  */
+    /** @inheritdoc */
     public function validate(ZipCodeInterface $zipObject)
     {
-        if (!$zipObject->getStreet() || !$zipObject->getCity() || !$zipObject->getRegion()) {
+        $generalZipCode = $this->config->isGeneralZipCodeEnabled();
+        if ((!$generalZipCode && !$zipObject->getStreet())
+            || !$zipObject->getCity()
+            || !$zipObject->getRegion()) {
             return false;
         }
-
         return true;
     }
 }
