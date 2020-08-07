@@ -23,6 +23,10 @@ class ViaCep extends AbstractZipCodeService
         }
 
         if ($response && $response->getStatusCode() == 200) {
+            $isError = isset($responseBody['erro']) && $responseBody['erro'] === true;
+            if ($isError) {
+                return $zipObject;
+            }
             $responseBody = json_decode($response->getBody(), true);
             $zipObject->setStreet($responseBody['logradouro'] ?? null);
             $zipObject->setRegion($responseBody['uf'] ?? null);
