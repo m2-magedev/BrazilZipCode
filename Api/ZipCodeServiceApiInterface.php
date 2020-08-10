@@ -1,10 +1,7 @@
 <?php
 
-
 namespace MageDev\BrazilZipCode\Api;
 
-
-use MageDev\BrazilZipCode\Api\Data\ZipCodeInterface;
 
 /**
  * Interface ZipCodeServiceApiInterface
@@ -17,7 +14,7 @@ interface ZipCodeServiceApiInterface
     /**
      * Search zipcode
      * @param string $zipCode
-     * @return ZipCodeInterface
+     * @return \MageDev\BrazilZipCode\Api\Data\ZipCodeInterface
      */
     public function search($zipCode);
 }
