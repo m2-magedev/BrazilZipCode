@@ -23,19 +23,22 @@ class ViaCep extends AbstractZipCodeService
         }
 
         if ($response && $response->getStatusCode() == 200) {
+            $responseBody = json_decode($response->getBody(), true);
             $isError = isset($responseBody['erro']) && $responseBody['erro'] === true;
+
             if ($isError) {
                 return $zipObject;
             }
-            $responseBody = json_decode($response->getBody(), true);
+
             $zipObject->setStreet($responseBody['logradouro'] ?? null);
             $zipObject->setRegion($responseBody['uf'] ?? null);
-            $zipObject->setRegionId($this->config->getRegionId($responseBody['uf'], 'BR') ?? null);
+            $zipObject->setRegionId($this->config->getRegionId($responseBody['uf'] ?? null, 'BR'));
             $zipObject->setNeighborhood($responseBody['bairro'] ?? null);
             $zipObject->setCity($responseBody['localidade'] ?? null);
             $zipObject->setAdditionalInfo($responseBody['complemento'] ?? null);
             $zipObject->setCode($responseBody['ibge'] ?? null);
             $zipObject->setIsValid($this->validate($zipObject));
+
             return $zipObject;
         }
         return $zipObject;

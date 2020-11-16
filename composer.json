@@ -34,5 +34,8 @@
         "psr-4": {
             "MageDev\\BrazilZipCode\\": ""
         }
+    },
+    "require": {
+        "ext-json": "*"
     }
 }
