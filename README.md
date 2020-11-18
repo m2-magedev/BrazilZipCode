@@ -8,7 +8,7 @@ Módulo criado para utilização de serviços de consulta de CEP, já contendo d
 
 #### Instalar via Composer (recomendado)
 ```
-composer require feeh27/brazilzipcode
+composer require magedev/brazilzipcode
 php bin/magento module:enable MageDev_BrazilZipCode
 php bin/magento setup:upgrade
 ```
