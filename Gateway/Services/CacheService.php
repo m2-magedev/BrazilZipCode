@@ -54,7 +54,7 @@ class CacheService implements ZipCodeServiceInterface
     public function getCacheData()
     {
         $cacheData = $this->cacheType->load(ApiSearchType::CACHE_TAG);
-        return unserialize($cacheData);
+        return $cacheData ? unserialize($cacheData) : [];
     }
 
     /**
