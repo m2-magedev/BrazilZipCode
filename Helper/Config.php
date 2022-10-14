@@ -101,7 +101,10 @@ class Config
      */
     public function updateSystemServicesConfig($data)
     {
-        $configServices = json_decode($this->getSortOrder(), true);
+        if($this->getSortOrder())
+            $configServices = json_decode($this->getSortOrder(), true);
+        else
+            $configServices = null;
 
         if (!is_array($configServices)) {
             $configServices = [];
