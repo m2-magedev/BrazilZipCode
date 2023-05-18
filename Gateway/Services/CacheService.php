@@ -63,7 +63,7 @@ class CacheService implements ZipCodeServiceInterface
      */
     public function save(ZipCodeInterface $zipObject)
     {
-        $cacheData = $this->getCacheData();
+        $cacheData = $this->getCacheData() != false ? $this->getCacheData() : [];
         $cacheData[$zipObject->getZipCode()] = $zipObject;
         $this->cacheType->save(serialize($cacheData), ApiSearchType::CACHE_TAG);
     }
